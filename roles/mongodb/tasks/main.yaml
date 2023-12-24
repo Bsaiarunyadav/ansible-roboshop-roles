@@ -4,9 +4,9 @@
     dest: /etc/yum.repos.d/mongo.repo
 # here what will happen when ansible runs this  it will understand that it should go to the folder tasks and it will run it from there 
 - name: Install mongodb
-      ansible.builtin.yum:
-        name: mongodb-org 
-        state: installed
+  ansible.builtin.yum:
+    name: mongodb-org 
+    state: installed
 - name: start and enable mongodb
   ansible.builtin.service:
     name: mongod
