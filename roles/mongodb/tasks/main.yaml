@@ -1,7 +1,7 @@
 - name: copy mongodb repo to yum.repos.d
-      ansible.builtin.copy:
-        src: mongodb.repo
-        dest: /etc/yum.repos.d/mongo.repo
+  ansible.builtin.copy:
+    src: mongodb.repo
+    dest: /etc/yum.repos.d/mongo.repo
 # here what will happen when ansible runs this  it will understand that it should go to the folder tasks and it will run it from there 
 - name: Install mongodb
       ansible.builtin.yum:
