@@ -1,6 +1,6 @@
 - name: installing roboshop roboshop
-  hosts: mongodb
+  hosts: "{{component}}"
   become: yes
   roles:
-  - mongodb 
+  - "{{component}}"   # here we are making this as a variable
             
