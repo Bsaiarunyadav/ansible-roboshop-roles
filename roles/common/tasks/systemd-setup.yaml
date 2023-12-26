@@ -3,11 +3,11 @@
     src: "{{component}}.service"
     dest: /etc/systemd/system/{{component}}.service
 
-- name: catalgoue daemon reaload 
+- name: daemon reaload 
   ansible.builtin.systemd:
     daemon_reload: true
     
-- name: catalgoue daemon reaload 
+- name: restart {{component}} 
   ansible.builtin.systemd:
     daemon_reload: true
     state: restarted 
