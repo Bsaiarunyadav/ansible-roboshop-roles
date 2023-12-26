@@ -8,6 +8,7 @@
     name: mongodb-org-shell
     state: installed
 
+# To handle if the data already exists
 - name: Check if data exists
   ansible.builtin.command: mongo --quiet --host mongodb.awsdevopsjoin.online --eval 'db.getMongo().getDBNames().indexOf("{{component}}");'
   register: out
