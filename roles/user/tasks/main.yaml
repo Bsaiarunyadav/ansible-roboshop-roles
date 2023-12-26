@@ -1,0 +1,24 @@
+- name: install nodejs
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: nodejs
+
+- name: setup application # here 1st it install nodejs and 2nd app setup
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app-setup
+
+- name: install dependencies
+  ansible.builtin.command: npm install
+  args:
+    chdir: /app
+
+- name: load schema # here we are reffering to (load-mongo-schema.yaml)
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: load-mongo-schema
+
+- name: setup application
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: systemd-setup
