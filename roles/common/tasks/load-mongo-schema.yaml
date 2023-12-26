@@ -9,7 +9,7 @@
     state: installed
 
 - name: Check if data exists
-  ansible.builtin.command: mongo --quiet --host mongodb.awsdevopsjoin.online --eval 'db.getMongo().getDBNames().indexOf({{component}});'
+  ansible.builtin.command: mongo --quiet --host mongodb.awsdevopsjoin.online --eval 'db.getMongo().getDBNames().indexOf("{{component}}");'
   register: out
 
 - name: loading {{component}} data
