@@ -1,21 +1,21 @@
-- name: Install redis
-  ansible.builtin.yum: 
+- name: Install redis repo
+  ansible.builtin.yum:
     name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
     state: installed
     disable_gpg_check: true
 - name: enable 6.2 package # here this is yum module but not the installation for this we use command module.
   ansible.builtin.command: yum module enable redis:remi-6.2 -y
 - name: install redis
-  ansible.builtin.yum: 
+  ansible.builtin.yum:
     name: redis
-    state: installed 
-- name: allowing all ports 
+    state: installed
+- name: allowing all ports
   ansible.builtin.replace:
     path: /etc/redis.conf
-    regexp: '127.0.0.1'
-    replace: '0.0.0.0'
+    regexp: "127.0.0.1"
+    replace: "0.0.0.0"
 - name: enable redis
   ansible.builtin.service:
     name: redis
     state: started
-    enabled: yes 
+    enabled: yes
