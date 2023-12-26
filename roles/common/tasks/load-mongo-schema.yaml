@@ -8,8 +8,13 @@
     name: mongodb-org-shell
     state: installed
 
+- name: Check if data exists
+  ansible.builtin.command: mongo --quiet --host mongodb.awsdevopsjoin.online --eval 'db.getMongo().getDBNames().indexOf({{component}});'
+  register: out
+
 - name: loading {{component}} data
   ansible.builtin.command: mongo --host mongodb.awsdevopsjoin.online < /app/schema/{{component}}.js
+  when: out.stdout == "-1"
 
 # - name: Load Schema
 #   community.mongodb.mongodb_shell:
