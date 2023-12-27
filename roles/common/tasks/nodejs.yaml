@@ -11,3 +11,4 @@
   ansible.builtin.yum:
     name: nodejs
     state: installed
+    disable_gpg_check: "{{ disable_yum_gpg_check | d(omit) }}"
