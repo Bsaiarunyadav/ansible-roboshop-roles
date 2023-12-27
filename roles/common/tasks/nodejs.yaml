@@ -1,11 +1,11 @@
 - name: setup npm source
   ansible.builtin.shell: "curl -sL https://rpm.nodesource.com/setup_lts.x | bash"
 
-- name: Import GPG Public Key for Node.js
-  become: yes
-  become_user: root
-  rpm_key:
-    key: "https://rpm.nodesource.com/pub_20.x/el/7/x86_64/NODESOURCE-GPG-SIGNING-KEY-20-X"
+# - name: Import GPG Public Key for Node.js
+#   become: yes
+#   become_user: root
+#   rpm_key:
+#     key: "https://rpm.nodesource.com/pub_20.x/el/7/x86_64/NODESOURCE-GPG-SIGNING-KEY-20-X"
 
 - name: install Nodejs
   ansible.builtin.yum:
