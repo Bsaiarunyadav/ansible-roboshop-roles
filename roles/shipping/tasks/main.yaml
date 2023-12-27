@@ -1,0 +1,31 @@
+- name: install maven
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: maven-setup
+
+- name: setup application     # here 1st it install nodejs and 2nd app setup
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app-setup
+
+- name: install dependencies    
+  ansible.builtin.command: mvn clean package
+  args:
+    chdir: /app
+
+- name: rename jar file
+  ansible.builtin.command: mv target/shipping-1.0.jar shipping.jar # for using this module here we need to be inside directory so we use 
+  args: 
+    chdir: /app
+
+- name: load schema # here we are reffering to (load-mongo-schema.yaml)
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: load-mysql-schema
+
+- name: start application     
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: systemd-setup
+
+
