@@ -19,3 +19,9 @@
 
 - name: changing default password 
   ansible.builtin.command: mysql_secure_installation --set-root-pass RoboShop@1
+
+
+
+  #mysql -h mysql.awsdevopsjoin.online -uroot -pRoboshop@1
+  # >mysql  showdatabases;
+  
