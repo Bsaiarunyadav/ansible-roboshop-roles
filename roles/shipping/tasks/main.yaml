@@ -1,9 +1,9 @@
-- name: install Maven
+- name: Install Maven
   ansible.builtin.import_role:
     name: common
     tasks_from: maven-setup
 
-- name: setup application     # here 1st it install nodejs and 2nd app setup
+- name: setup application     
   ansible.builtin.import_role:
     name: common
     tasks_from: app-setup
