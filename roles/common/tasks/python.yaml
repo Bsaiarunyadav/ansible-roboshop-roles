@@ -1,0 +1,9 @@
+- name: install phython # here we took looping to install 3 different packages.
+  ansible.builtin.yum:
+    name: "{{item}}"
+    state: installed
+  loop:
+    - python36
+    - gcc
+    - python3-devel
+

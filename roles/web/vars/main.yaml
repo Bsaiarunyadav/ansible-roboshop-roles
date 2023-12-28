@@ -1,0 +1,5 @@
+CATALOGUE_HOST: catalogue.awsdevopsjoin.online
+USER_HOST: user.awsdevopsjoin.online
+CART_HOST: cart.awsdevopsjoin.online
+SHIPPING_HOST: shipping.awsdevopsjoin.online
+PAYMENT_HOST: payment.awsdevopsjoin.online
