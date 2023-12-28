@@ -15,7 +15,7 @@
 
 - name: loading {{component}} data
   ansible.builtin.command: mongo --host mongodb.awsdevopsjoin.online < /app/schema/{{component}}.js
-  when: out.stdout == "-1"
+  #when: out.stdout == "-1"
 
 # - name: Load Schema
 #   community.mongodb.mongodb_shell:
