@@ -13,7 +13,7 @@
 #   ansible.builtin.command: mongo --quiet --host mongodb.awsdevopsjoin.online --eval 'db.getMongo().getDBNames().indexOf("{{component}}");'
 #   register: out
 
-- name: loading {{component}} data
+- name: load {{component}} data
   ansible.builtin.command: mongo --host mongodb.awsdevopsjoin.online < /app/schema/{{component}}.js
   #when: out.stdout == "-1"
 
